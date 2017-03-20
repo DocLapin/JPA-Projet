@@ -1,0 +1,13 @@
+JPA – Projet : Protocole web service
+
+Profil :
+{"idProfil" : "13456", "nom" : "toto", "prenom" : "mr", "dateNaiss" : "31/12/1990", "ville"  : "Paris", "etablissement" : "Sciences Po", "promo" : "2010", "mail" : "toto.rest@web.com"}
+
+Amitie :
+{"idProfil1" : "12345", "idProfil2" : "23456"}
+
+Message :
+{"idMessage" : "98765", "idExp" : "67889", "idDest" : "35678", "message"}
+
+ProfilAdmin:
+{"droits" : "admin"}
