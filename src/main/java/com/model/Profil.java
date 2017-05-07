@@ -2,15 +2,33 @@ package com.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class Profil {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID_PROFIL")
 	private Long idProfil;
+	@Column(name = "PROFIL_SURNAME")
 	private String nom;
+	@Column(name = "PROFIL_NAME")
 	private String prenom;
+	@Column(name = "PROFIL_DOB")
 	private Date dateNaiss;
+	@Column(name = "PROFIL_CITY")
 	private String ville;
+	@Column(name = "PROFIL_UNIV")
 	private String etablissement;
+	@Column(name = "PROFIL_YEAR")
 	private String promo;
+	@Column(name = "PROFIL_EMAIL")
 	private String mail;
 	
 	public Long getIdProfil() {
