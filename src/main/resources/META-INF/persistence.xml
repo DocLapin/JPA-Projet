@@ -4,11 +4,9 @@
 	<persistence-unit name="manager1" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
-		<class>com.univ.Person</class>
-		<class>com.univ.Rent</class>
-		<class>com.univ.Vehicule</class>
-		<class>com.univ.Car</class>
-		<class>com.univ.Van</class>
+		<class>com.model.Message</class>
+		<class>com.model.Profil</class>
+		<class>com.model.ProfilAdmin</class>
 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 

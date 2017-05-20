@@ -17,8 +17,6 @@ import com.model.Profil;
 @Controller
 public class JpaProjetWebService {
 
-	// PROFIL
-
 	// Ajout Profil
 	@RequestMapping(value = "/profil", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)

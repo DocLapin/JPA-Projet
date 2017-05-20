@@ -3,13 +3,14 @@ package com.model;
 import java.sql.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Entity
 public class Profil {
 	
 	@Id
@@ -44,6 +45,10 @@ public class Profil {
 		this.mail = mail;
 	}
 	
+	public Profil() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getIdProfil() {
 		return idProfil;
 	}

@@ -1,0 +1,11 @@
+<div>
+	Choisir profil :
+	<select ng-options="profil.idProfil for profil in listeProfil" ng-model="selected">
+	</select><br>
+	<input type="submit" ng-click="choisirProfil(selected)" ><br>
+	
+	Liste profils :<br>
+	{{listeProfil | json}}
+	
+	<br>Profils selectionnes : {{selected}}  
+</div>

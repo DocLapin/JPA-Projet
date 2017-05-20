@@ -1,10 +1,11 @@
 package com.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Entity
 public class ProfilAdmin {
 	
 	@Column(name = "RIGHTS")
