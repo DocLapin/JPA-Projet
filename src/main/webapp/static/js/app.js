@@ -1,17 +1,18 @@
 'use strict';
 
-var app = angular.module('app', [ 'ngRoute', 'rentControllers' ]);
+var app = angular.module('GestionProfil', [ 'ngRoute', 'rentControllers' ]);
 
 app.config([ '$routeProvider', function($routeProvider) {
-	$routeProvider.when('/profil', {
+	$routeProvider.when('/gestionProfil', {
 		templateUrl : 'partials/menu.html'
-	}).when('/profil/listeProfil', {
+	}).when('/gestionProfil/listeProfil', {
 		templateUrl : 'partials/listerProfil.html',
 		controller : 'rentController'
-	}).when('/profil/modifierProfil', {
+	}).when('/gestionProfil/modifierProfil', {
 		templateUrl : 'partials/modifierProfil.html',
 		controller : 'modifierController'
 	}).otherwise({
-		redirectTo : '/'
+		redirectTo : '/gestionProfil'
 	});
 } ]);
+
