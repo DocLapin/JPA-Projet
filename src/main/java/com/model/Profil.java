@@ -31,6 +31,19 @@ public class Profil {
 	@Column(name = "PROFIL_EMAIL")
 	private String mail;
 	
+	public Profil(Long idProfil, String nom, String prenom, Date dateNaiss, String ville, String etablissement,
+			String promo, String mail) {
+		super();
+		this.idProfil = idProfil;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaiss = dateNaiss;
+		this.ville = ville;
+		this.etablissement = etablissement;
+		this.promo = promo;
+		this.mail = mail;
+	}
+	
 	public Long getIdProfil() {
 		return idProfil;
 	}
@@ -78,6 +91,12 @@ public class Profil {
 	}
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+	
+	@Override
+	public String toString() {
+		return "Profil [idProfil=" + idProfil + ", nom=" + nom + ", prenom=" + prenom + ", dateNaiss=" + dateNaiss
+				+ ", ville=" + ville + ", etablissement=" + etablissement + ", promo=" + promo + ", mail=" + mail + "]";
 	}
 
 }
