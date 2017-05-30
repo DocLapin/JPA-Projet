@@ -31,7 +31,7 @@ rentControllers.controller("modifierController", function($scope,$http,$routePar
 
 	$http.get('http://localhost:8080/profil/11AA22').
 	  success(function(data, status, headers, config) {
-	  	$scope.voiture = data;
+	  	$scope.profil = data;
 	  }).
 	  error(function(data, status, headers, config) {
 		  alert("Erreur http get : " + status);
@@ -41,14 +41,27 @@ rentControllers.controller("modifierController", function($scope,$http,$routePar
 		$http({
 		    method: 'PUT',
 		    url: 'http://localhost:8080/profil',
-		    data: voiture,
+		    data: profil,
 		    headers: {'Content-Type': 'application/json'}
 		}).
 		error(function(data, status, headers, config) {
 			alert("Erreur http get : " + status);
 		});
 	};
+});
 
+rentControllers.controller("creerController", function($scope,$http,$routeParams) {
 
-        
+	$scope.creerProfil = function(selected) {
+		
+		$http({
+		    method: 'POST',
+		    url: 'http://localhost:8080/profil',
+		    data: selected,
+		    headers: {'Content-Type': 'application/json'}
+		}).
+		error(function(data, status, headers, config) {
+			alert("Erreur http get : " + status);
+		});
+	};     
 });

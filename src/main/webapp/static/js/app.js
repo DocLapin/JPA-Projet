@@ -11,8 +11,10 @@ app.config([ '$routeProvider', function($routeProvider) {
 	}).when('/gestionProfil/modifierProfil', {
 		templateUrl : 'partials/modifierProfil.html',
 		controller : 'modifierController'
+	}).when('/gestionProfil/creerProfil', {
+		templateUrl : 'partials/creerProfil.html',
+		controller : 'creerController'
 	}).otherwise({
 		redirectTo : '/gestionProfil'
 	});
 } ]);
-

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.model.Profil;
+import com.model.Service;
 
 @Controller
 public class JpaProjetWebService {
@@ -22,6 +23,7 @@ public class JpaProjetWebService {
 	@ResponseStatus(HttpStatus.OK)
 	public void creerProfil(@RequestBody Profil profil) {
 		System.out.println("creerProfil: " + profil);
+		Service.persist(profil);
 	}
 
 	@RequestMapping(value = "/profil", method = RequestMethod.PUT)
