@@ -1,7 +1,11 @@
 package com.web;
 
+import java.awt.print.Printable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -21,11 +25,36 @@ public class JpaProjetWebService {
 	// Ajout Profil
 	@RequestMapping(value = "/profil", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
-	public void creerProfil(@RequestBody Profil profil) {
+	public void creerProfil(@RequestBody Profil profil, HttpServletRequest request) {
 		System.out.println("creerProfil: " + profil);
+		String nom = (String) request.getParameter("nom");
+		String prenom = (String) request.getParameter("prenom");
+		String mail = (String) request.getParameter("mail");
+		String ville = (String) request.getParameter("ville");
+		String etablissement = (String) request.getParameter("etablissement");
+		String promo = (String) request.getParameter("promo");
+		
+		if (nom != null && prenom != null && mail != null) {
+		profil.setPrenom(prenom);
+		profil.setMail(mail);
+		profil.setNom(nom);
+		try  {
+			profil.setVille(ville);
+			profil.setEtablissement(etablissement);
+			profil.setPromo(promo);
+			}catch (Exception e) {
+				System.out.print("Erreur : " + e);
+			}
 		profil.ajouterProfil(profil);
+		}
+
+		else {
+			System.out.println("Vous devez entrer un prenom, nom et mail obligatoirement");
+		}
+	
 	}
 
+	//Modifier profil
 	@RequestMapping(value = "/profil", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
 	public void modifierProfil(@RequestBody Profil profil) {
