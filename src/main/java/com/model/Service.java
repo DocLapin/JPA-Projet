@@ -28,9 +28,25 @@ public final class Service {
 		
 		}catch(Exception e){
 			tx.rollback();
-			
+			System.out.println("Erreur dans la persistence, rollback");
 			return Boolean.FALSE;
 		}
+	}
+	
+	//Rechercher une classe et la supprimer de la base
+	public static Boolean suppression(Object obj) {
+		try {
+			Object obj_searched = entityManager.find(obj.getClass(), 1);
+			tx.begin();
+			entityManager.remove(obj_searched);
+			tx.commit();
+		}catch(Exception e) {
+			tx.rollback();
+			System.out.println("Erreur lors de la suppression, rollback");
+			return Boolean.FALSE;
+		}
+		return Boolean.TRUE;
+	
 	}
 	
 	

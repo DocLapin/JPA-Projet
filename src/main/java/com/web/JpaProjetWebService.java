@@ -23,13 +23,13 @@ public class JpaProjetWebService {
 	@ResponseStatus(HttpStatus.OK)
 	public void creerProfil(@RequestBody Profil profil) {
 		System.out.println("creerProfil: " + profil);
-		Service.persist(profil);
+		profil.ajouterProfil(profil);
 	}
 
 	@RequestMapping(value = "/profil", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
 	public void modifierProfil(@RequestBody Profil profil) {
-		System.out.println("modifierVoiture: " + profil);
+		System.out.println("modifierProfil: " + profil);
 	}
 
 	@RequestMapping(value = "/profil/{idProfil}", method = RequestMethod.DELETE)
@@ -42,7 +42,7 @@ public class JpaProjetWebService {
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public void obtenirProfil(@PathVariable(value = "idProfil") String idProfil) {
-
+		
 	}
 
 	@RequestMapping(value = "/profil", method = RequestMethod.GET)

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 @Entity
 public class Profil {
 	
+	@javax.persistence.Transient
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID_PROFIL")
@@ -103,5 +104,16 @@ public class Profil {
 		return "Profil [idProfil=" + idProfil + ", nom=" + nom + ", prenom=" + prenom + ", dateNaiss=" + dateNaiss
 				+ ", ville=" + ville + ", etablissement=" + etablissement + ", promo=" + promo + ", mail=" + mail + "]";
 	}
+	
+	public boolean ajouterProfil(Profil profil) {
+		try {
+			Service.persist(profil);
+		}catch (Exception e) {
+			System.out.println("Erreur dans l'insertion du profil, rollback");
+			return false;
+		}
+		return true;
+	}
+	
 
 }
