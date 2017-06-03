@@ -1,14 +1,15 @@
 package com.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import org.springframework.stereotype.Component;
 
 @Entity
 public class Profil {
@@ -33,10 +34,9 @@ public class Profil {
 	@Column(name = "PROFIL_EMAIL")
 	private String mail;
 	
-	public Profil(Long idProfil, String nom, String prenom, Date dateNaiss, String ville, String etablissement,
+	public Profil(String nom, String prenom, Date dateNaiss, String ville, String etablissement,
 			String promo, String mail) {
 		super();
-		this.idProfil = idProfil;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaiss = dateNaiss;
@@ -53,9 +53,9 @@ public class Profil {
 	public Long getIdProfil() {
 		return idProfil;
 	}
-	public void setIdProfil(Long idProfil) {
-		this.idProfil = idProfil;
-	}
+//	public void setIdProfil(Long idProfil) {
+//		this.idProfil = idProfil;
+//	}
 	public String getNom() {
 		return nom;
 	}
@@ -68,6 +68,8 @@ public class Profil {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+	
+	@Temporal(TemporalType.DATE)
 	public Date getDateNaiss() {
 		return dateNaiss;
 	}
