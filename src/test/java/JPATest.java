@@ -1,35 +1,48 @@
 import static org.junit.Assert.*;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import org.junit.Test;
 
 import com.model.Profil;
-import com.model.Service;
 
 public class JPATest {
 
 	@Test
 	public void test() {
+		
+    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("manager1");
+		EntityManager entityManager = emf.createEntityManager();
+		
+		EntityTransaction tx = entityManager.getTransaction();
+		
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date beginDate;
 		
-		
-		try {
+    	try{
+    		
+			tx.begin();
+			
 			beginDate = dateFormat.parse("03/05/2017");
-		
+			
 			Profil profilTest = new Profil("NomTest","PrenomTest", beginDate,"Paris","Univ Test","2017","test@test.fr");
 			
-			Service.persist(profilTest);
+			entityManager.persist(profilTest);
+				
+			tx.commit();			
 		
-		} catch (ParseException e) {
-			
-			fail("Not yet implemented");
+		}catch(Exception e){
+			tx.rollback();
+			fail("rollback");
 		}
-		
+	
 	}
 
 }

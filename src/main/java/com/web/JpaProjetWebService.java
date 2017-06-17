@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.model.Profil;
-import com.model.Service;
 
 @Controller
 public class JpaProjetWebService {

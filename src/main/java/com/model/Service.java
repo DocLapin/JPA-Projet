@@ -12,11 +12,13 @@ public final class Service {
 	static private EntityTransaction tx;
 	
 	private Service() {
-		tx = entityManager.getTransaction();
+		
 	}
 	
 	public static Boolean persist(Object obj) {
 		try{
+			
+			tx = entityManager.getTransaction();
 			
 			tx.begin();
 			
